@@ -1,10 +1,11 @@
 package cache
 
 import (
+	"encoding/json"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 	"strings"
-	"encoding/json"
 )
 
 type File struct {
@@ -62,9 +63,8 @@ func (f *File) IsExist() (bool, error) {
 
 func GetTempDir() string {
 	tempDir := os.TempDir()
-	if exist := strings.HasSuffix(tempDir, "/"); exist == false {
-		tempDir = tempDir + "/"
+	if !strings.HasSuffix(tempDir, string(filepath.Separator)) {
+		tempDir = tempDir + string(filepath.Separator)
 	}
-
 	return tempDir
 }
