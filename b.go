@@ -3,13 +3,12 @@ package browser
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/misslng/fake-useragent/setting"
+	"github.com/misslng/fake-useragent/spiders"
+	"github.com/misslng/fake-useragent/useragent"
+	"github.com/misslng/fake-useragent/useragent/cache"
 	"log"
 	"time"
-
-	"github.com/EDDYCJY/fake-useragent/setting"
-	"github.com/EDDYCJY/fake-useragent/spiders"
-	"github.com/EDDYCJY/fake-useragent/useragent"
-	"github.com/EDDYCJY/fake-useragent/useragent/cache"
 )
 
 type browser struct {

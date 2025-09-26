@@ -2,16 +2,15 @@ package spiders
 
 import (
 	"fmt"
+	"github.com/misslng/fake-useragent/downloader"
+	"github.com/misslng/fake-useragent/scheduler"
+	"github.com/misslng/fake-useragent/setting"
+	"github.com/misslng/fake-useragent/useragent"
 	"net/http"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/nozzle/throttler"
-
-	"github.com/EDDYCJY/fake-useragent/downloader"
-	"github.com/EDDYCJY/fake-useragent/scheduler"
-	"github.com/EDDYCJY/fake-useragent/setting"
-	"github.com/EDDYCJY/fake-useragent/useragent"
 )
 
 type Spider struct {

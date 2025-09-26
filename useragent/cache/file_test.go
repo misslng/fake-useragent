@@ -2,9 +2,8 @@ package cache
 
 import (
 	"fmt"
+	"github.com/misslng/fake-useragent/setting"
 	"testing"
-
-	"github.com/EDDYCJY/fake-useragent/setting"
 )
 
 var f = NewFileCache(GetTempDir(), fmt.Sprintf(setting.TEMP_FILE_TEST_NAME, setting.VERSION))
