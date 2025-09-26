@@ -92,11 +92,11 @@ func (b *browser) load() *browser {
 			if len(m) == 0 {
 				panic("download ua json fail")
 			}
+			useragent.UA.SetData(m)
 			err := fileCache.WriteJson(useragent.UA.GetAll())
 			if err != nil {
 				panic(err)
 			}
-			useragent.UA.SetData(m)
 			return b
 		}
 	}
