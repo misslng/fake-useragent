@@ -70,8 +70,11 @@ func (b *browser) load() *browser {
 			if err != nil {
 				log.Fatalf("fileCache.Read err: %v", err)
 			}
-			isCache = true
-		} else {
+			if len(cacheContent) > 500 {
+				isCache = true
+			}
+		}
+		if !fileExist || !isCache {
 			rawCache := cache.NewRawCache(setting.CACHE_URL, fmt.Sprintf(setting.TEMP_FILE_NAME, setting.CACHE_VERSION))
 			rawResp, rawExist, err := rawCache.Get()
 			if err == nil && rawExist == true {
@@ -86,6 +89,9 @@ func (b *browser) load() *browser {
 
 		if isCache == true {
 			json.Unmarshal(cacheContent, &m)
+			if len(m) == 0 {
+				panic("download ua json fail")
+			}
 			useragent.UA.SetData(m)
 			if fileExist == false {
 				fileCache.WriteJson(useragent.UA.GetAll())
